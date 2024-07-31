@@ -3,6 +3,7 @@ using HealthTrackingApp.Business.Abstractions;
 using HealthTrackingApp.Business.Validators;
 using HealthTrackingApp.DataAccess.Repositories;
 using HealthTrackingApp.Entity.Models;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -59,5 +60,15 @@ namespace HealthTrackingApp.Business.Services
                 _doctorRepository.Update(entity);
             }
         }
+        public List<string> GetAllUniqueSpecialties()
+        {
+            return _doctorRepository.GetAllUniqueSpecialties();
+        }
+
+        public List<Doctor> GetDoctorsBySpecialty(string specialty)
+        {
+            return _doctorRepository.GetDoctorsBySpecialty(specialty);
+        }
+
     }
 }

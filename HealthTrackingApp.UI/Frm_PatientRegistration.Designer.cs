@@ -72,6 +72,8 @@
             dgvPatientList = new DataGridView();
             txtPatientSearch = new TextBox();
             label19 = new Label();
+            btnCreatAppointment = new Button();
+            label20 = new Label();
             grpPatientRegistration.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvPatientList).BeginInit();
             SuspendLayout();
@@ -116,9 +118,9 @@
             grpPatientRegistration.Controls.Add(label3);
             grpPatientRegistration.Controls.Add(txtFullName);
             grpPatientRegistration.Controls.Add(label1);
-            grpPatientRegistration.Location = new Point(29, 13);
+            grpPatientRegistration.Location = new Point(29, 38);
             grpPatientRegistration.Name = "grpPatientRegistration";
-            grpPatientRegistration.Size = new Size(1045, 381);
+            grpPatientRegistration.Size = new Size(1045, 370);
             grpPatientRegistration.TabIndex = 6;
             grpPatientRegistration.TabStop = false;
             grpPatientRegistration.Text = "Hasta Kayıt Formu";
@@ -472,6 +474,7 @@
             dgvPatientList.Name = "dgvPatientList";
             dgvPatientList.Size = new Size(1333, 214);
             dgvPatientList.TabIndex = 7;
+            dgvPatientList.CellDoubleClick += dgvPatientList_CellDoubleClick;
             dgvPatientList.MouseClick += dgvPatientList_MouseClick;
             // 
             // txtPatientSearch
@@ -492,12 +495,33 @@
             label19.TabIndex = 31;
             label19.Text = "Hasta Ara :";
             // 
+            // btnCreatAppointment
+            // 
+            btnCreatAppointment.Location = new Point(1109, 285);
+            btnCreatAppointment.Name = "btnCreatAppointment";
+            btnCreatAppointment.Size = new Size(238, 49);
+            btnCreatAppointment.TabIndex = 32;
+            btnCreatAppointment.Text = "Randevu Oluştur";
+            btnCreatAppointment.UseVisualStyleBackColor = true;
+            btnCreatAppointment.Click += btnCreatAppointment_Click;
+            // 
+            // label20
+            // 
+            label20.AutoSize = true;
+            label20.Location = new Point(69, 9);
+            label20.Name = "label20";
+            label20.Size = new Size(295, 15);
+            label20.TabIndex = 33;
+            label20.Text = "Lütfen Randevu Oluşturmak İstediğiniz Hastayı Seçiniz.";
+            // 
             // Frm_PatientRegistration
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.IndianRed;
             ClientSize = new Size(1399, 640);
+            Controls.Add(label20);
+            Controls.Add(btnCreatAppointment);
             Controls.Add(label19);
             Controls.Add(txtPatientSearch);
             Controls.Add(btnPatientDelete);
@@ -561,5 +585,7 @@
         private Button btnPatientUpdate;
         private TextBox txtPatientSearch;
         private Label label19;
+        private Button btnCreatAppointment;
+        private Label label20;
     }
 }

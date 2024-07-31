@@ -7,6 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Net;
@@ -31,7 +32,7 @@ namespace HealthTrackingApp.UI
             _patientService = new PatientService(pRepo);
             InsuranceInformationRepository iRepo = new InsuranceInformationRepository(_context);
             _insuranceInformationService = new InsuranceInformationService(iRepo);
-           
+
         }
 
         private void Frm_PatientRegistration_Load(object sender, EventArgs e)
@@ -139,6 +140,45 @@ namespace HealthTrackingApp.UI
             }
             return string.Empty;
         }
+        private void dgvPatientList_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dgvPatientList.SelectedRows.Count > 0)
+            {
+                var selectedRow = dgvPatientList.SelectedRows[0];
+
+
+                txtSsn.Text = selectedRow.Cells["SSN"].Value.ToString();
+                txtFullName.Text = selectedRow.Cells["FullName"].Value.ToString();
+                dtpBirthDate.Text = selectedRow.Cells["BirthDate"].Value.ToString();
+                cmbGender.SelectedItem = selectedRow.Cells["Gender"].Value.ToString();
+                txtPhone.Text = selectedRow.Cells["Phone"].Value.ToString();
+                txtEmail.Text = selectedRow.Cells["Email"].Value.ToString();
+                txtAddress.Text = selectedRow.Cells["Address"].Value.ToString();
+                if (selectedRow.Cells["MaritalStatus"].Value.ToString() == "Bekar")
+                {
+                    rbSingle.Checked = true;
+                }
+                else if (selectedRow.Cells["MaritalStatus"].Value.ToString() == "Evli")
+                {
+                    rbMarried.Checked = true;
+                }
+                txtEmergencyPersonName.Text = selectedRow.Cells["EmergencyContactPerson"].Value.ToString();
+                txtEmergencyPersonPhone.Text = selectedRow.Cells["EmergencyContactNumber"].Value.ToString();
+                rtxtMedicalHistory.Text = selectedRow.Cells["MedicalHistory"].Value.ToString();
+                cmbBloodType.SelectedItem = selectedRow.Cells["BloodType"].Value.ToString();
+                rtxtAllergies.Text = selectedRow.Cells["Allergies"].Value.ToString();
+                rtxtChronicDiseases.Text = selectedRow.Cells["ChronicDiseases"].Value.ToString();
+                rtxtMedications.Text = selectedRow.Cells["Medications"].Value.ToString();
+
+
+                Guid patientId = (Guid)selectedRow.Cells["Id"].Value;
+                InsuranceInformation insuranceInformation = _insuranceInformationService.GetByPatientId(patientId);
+
+                cmbInsuranceType.SelectedItem = insuranceInformation.InsuranceType;
+                txtInsuranceCompany.Text = insuranceInformation.InsuranceCompany;
+                txtPolicyNumber.Text = insuranceInformation.PolicyNumber;
+            }
+        }
 
         private void btnPatientUpdate_Click(object sender, EventArgs e)
         {
@@ -207,45 +247,6 @@ namespace HealthTrackingApp.UI
             return null;
         }
 
-        private void dgvPatientList_MouseClick(object sender, MouseEventArgs e)
-        {
-            if (dgvPatientList.SelectedRows.Count > 0)
-            {
-                var selectedRow = dgvPatientList.SelectedRows[0];
-
-
-                txtSsn.Text = selectedRow.Cells["SSN"].Value.ToString();
-                txtFullName.Text = selectedRow.Cells["FullName"].Value.ToString();
-                dtpBirthDate.Text = selectedRow.Cells["BirthDate"].Value.ToString();
-                cmbGender.SelectedItem = selectedRow.Cells["Gender"].Value.ToString();
-                txtPhone.Text = selectedRow.Cells["Phone"].Value.ToString();
-                txtEmail.Text = selectedRow.Cells["Email"].Value.ToString();
-                txtAddress.Text = selectedRow.Cells["Address"].Value.ToString();
-                if (selectedRow.Cells["MaritalStatus"].Value.ToString() == "Bekar")
-                {
-                    rbSingle.Checked = true;
-                }
-                else if (selectedRow.Cells["MaritalStatus"].Value.ToString() == "Evli")
-                {
-                    rbMarried.Checked = true;
-                }
-                txtEmergencyPersonName.Text = selectedRow.Cells["EmergencyContactPerson"].Value.ToString();
-                txtEmergencyPersonPhone.Text = selectedRow.Cells["EmergencyContactNumber"].Value.ToString();
-                rtxtMedicalHistory.Text = selectedRow.Cells["MedicalHistory"].Value.ToString();
-                cmbBloodType.SelectedItem = selectedRow.Cells["BloodType"].Value.ToString();
-                rtxtAllergies.Text = selectedRow.Cells["Allergies"].Value.ToString();
-                rtxtChronicDiseases.Text = selectedRow.Cells["ChronicDiseases"].Value.ToString();
-                rtxtMedications.Text = selectedRow.Cells["Medications"].Value.ToString();
-
-
-                Guid patientId = (Guid)selectedRow.Cells["Id"].Value;
-                InsuranceInformation insuranceInformation = _insuranceInformationService.GetByPatientId(patientId);
-
-                cmbInsuranceType.SelectedItem = insuranceInformation.InsuranceType;
-                txtInsuranceCompany.Text = insuranceInformation.InsuranceCompany;
-                txtPolicyNumber.Text = insuranceInformation.PolicyNumber;
-            }
-        }
 
         private void btnPatientDelete_Click(object sender, EventArgs e)
         {
@@ -271,7 +272,7 @@ namespace HealthTrackingApp.UI
             if (!string.IsNullOrEmpty(searchText) && searchText.Length >= 2)
             {
                 var filteredPatients = _patientService.GetAll()
-                    .Where(p => p.FullName.ToLower().Contains(searchText) || 
+                    .Where(p => p.FullName.ToLower().Contains(searchText) ||
                     p.SSN.ToLower().Contains(searchText))
                     .ToList();
 
@@ -280,6 +281,44 @@ namespace HealthTrackingApp.UI
             else if (searchText.Length == 0)
             {
                 PatientList();
+            }
+        }
+
+
+        private string selectedPatientSsn;
+        private string selectedPatientFullName;
+        private void dgvPatientList_MouseClick(object sender, MouseEventArgs e)
+        {
+            //if (dgvPatientList.CurrentRow != null)
+            //{
+            //    selectedPatientSsn = dgvPatientList.CurrentRow.Cells["SSN"].Value.ToString();
+            //    selectedPatientFullName = dgvPatientList.CurrentRow.Cells["FullName"].ToString();
+            //}
+
+            if (dgvPatientList.CurrentRow != null)
+            {
+                string ssn = dgvPatientList.CurrentRow.Cells["SSN"].Value?.ToString();
+                string fullName = dgvPatientList.CurrentRow.Cells["FullName"].Value?.ToString();
+
+                // Değerlerin doğru olduğundan emin olmak için debugging
+                //Debug.WriteLine("Selected Patient SSN: " + ssn);
+                //Debug.WriteLine("Selected Patient Full Name: " + fullName);
+
+                // Seçilen bilgileri saklayın
+                selectedPatientSsn = ssn;
+                selectedPatientFullName = fullName;
+            }
+        }
+        private void btnCreatAppointment_Click(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(selectedPatientSsn) && !string.IsNullOrEmpty(selectedPatientFullName))
+            {
+                Frm_Appointment frm_Appointment = new Frm_Appointment(selectedPatientSsn, selectedPatientFullName);
+                frm_Appointment.Show();
+            }
+            else
+            {
+                MessageBox.Show("Lütfen bir hasta seçiniz. ", "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
     }

@@ -1,0 +1,459 @@
+﻿namespace HealthTrackingApp.UI
+{
+    partial class Frm_Appointment
+    {
+        /// <summary>
+        ///  Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary>
+        ///  Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Windows Form Designer generated code
+
+        /// <summary>
+        ///  Required method for Designer support - do not modify
+        ///  the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            grpRandevuSistemi = new GroupBox();
+            lblPatientSsn = new Label();
+            button16 = new Button();
+            button15 = new Button();
+            button14 = new Button();
+            button13 = new Button();
+            button12 = new Button();
+            button11 = new Button();
+            button10 = new Button();
+            button9 = new Button();
+            button8 = new Button();
+            button7 = new Button();
+            button6 = new Button();
+            button5 = new Button();
+            button4 = new Button();
+            button3 = new Button();
+            button2 = new Button();
+            button1 = new Button();
+            cmbSpecialty = new ComboBox();
+            label8 = new Label();
+            btnAppointmentDelete = new Button();
+            btnAppintmentUpdate = new Button();
+            lblPatientFullName = new Label();
+            label6 = new Label();
+            cmbDoctorFullName = new ComboBox();
+            label5 = new Label();
+            label3 = new Label();
+            label2 = new Label();
+            dtpAppointmentDate = new DateTimePicker();
+            label1 = new Label();
+            btnAppointmentSave = new Button();
+            button17 = new Button();
+            dataGridView1 = new DataGridView();
+            button18 = new Button();
+            grpRandevuSistemi.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            SuspendLayout();
+            // 
+            // grpRandevuSistemi
+            // 
+            grpRandevuSistemi.BackColor = Color.MediumAquamarine;
+            grpRandevuSistemi.Controls.Add(lblPatientSsn);
+            grpRandevuSistemi.Controls.Add(button16);
+            grpRandevuSistemi.Controls.Add(button15);
+            grpRandevuSistemi.Controls.Add(button14);
+            grpRandevuSistemi.Controls.Add(button13);
+            grpRandevuSistemi.Controls.Add(button12);
+            grpRandevuSistemi.Controls.Add(button11);
+            grpRandevuSistemi.Controls.Add(button10);
+            grpRandevuSistemi.Controls.Add(button9);
+            grpRandevuSistemi.Controls.Add(button8);
+            grpRandevuSistemi.Controls.Add(button7);
+            grpRandevuSistemi.Controls.Add(button6);
+            grpRandevuSistemi.Controls.Add(button5);
+            grpRandevuSistemi.Controls.Add(button4);
+            grpRandevuSistemi.Controls.Add(button3);
+            grpRandevuSistemi.Controls.Add(button2);
+            grpRandevuSistemi.Controls.Add(button1);
+            grpRandevuSistemi.Controls.Add(cmbSpecialty);
+            grpRandevuSistemi.Controls.Add(label8);
+            grpRandevuSistemi.Controls.Add(btnAppointmentDelete);
+            grpRandevuSistemi.Controls.Add(btnAppintmentUpdate);
+            grpRandevuSistemi.Controls.Add(lblPatientFullName);
+            grpRandevuSistemi.Controls.Add(label6);
+            grpRandevuSistemi.Controls.Add(cmbDoctorFullName);
+            grpRandevuSistemi.Controls.Add(label5);
+            grpRandevuSistemi.Controls.Add(label3);
+            grpRandevuSistemi.Controls.Add(label2);
+            grpRandevuSistemi.Controls.Add(dtpAppointmentDate);
+            grpRandevuSistemi.Controls.Add(label1);
+            grpRandevuSistemi.Controls.Add(btnAppointmentSave);
+            grpRandevuSistemi.Location = new Point(12, 12);
+            grpRandevuSistemi.Name = "grpRandevuSistemi";
+            grpRandevuSistemi.Size = new Size(657, 334);
+            grpRandevuSistemi.TabIndex = 1;
+            grpRandevuSistemi.TabStop = false;
+            grpRandevuSistemi.Text = "Randevu Yönetim Sistemi";
+            // 
+            // lblPatientSsn
+            // 
+            lblPatientSsn.AutoSize = true;
+            lblPatientSsn.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 162);
+            lblPatientSsn.Location = new Point(143, 38);
+            lblPatientSsn.Name = "lblPatientSsn";
+            lblPatientSsn.Size = new Size(0, 20);
+            lblPatientSsn.TabIndex = 48;
+            // 
+            // button16
+            // 
+            button16.Location = new Point(490, 79);
+            button16.Name = "button16";
+            button16.Size = new Size(46, 22);
+            button16.TabIndex = 47;
+            button16.Text = "10:30";
+            button16.UseVisualStyleBackColor = true;
+            // 
+            // button15
+            // 
+            button15.Location = new Point(542, 173);
+            button15.Name = "button15";
+            button15.Size = new Size(46, 22);
+            button15.TabIndex = 46;
+            button15.Text = "17:00";
+            button15.UseVisualStyleBackColor = true;
+            // 
+            // button14
+            // 
+            button14.Location = new Point(490, 173);
+            button14.Name = "button14";
+            button14.Size = new Size(46, 22);
+            button14.TabIndex = 45;
+            button14.Text = "16:30";
+            button14.UseVisualStyleBackColor = true;
+            // 
+            // button13
+            // 
+            button13.Location = new Point(438, 173);
+            button13.Name = "button13";
+            button13.Size = new Size(46, 22);
+            button13.TabIndex = 44;
+            button13.Text = "16:00";
+            button13.UseVisualStyleBackColor = true;
+            // 
+            // button12
+            // 
+            button12.Location = new Point(386, 173);
+            button12.Name = "button12";
+            button12.Size = new Size(46, 22);
+            button12.TabIndex = 43;
+            button12.Text = "15:30";
+            button12.UseVisualStyleBackColor = true;
+            // 
+            // button11
+            // 
+            button11.Location = new Point(542, 142);
+            button11.Name = "button11";
+            button11.Size = new Size(46, 22);
+            button11.TabIndex = 42;
+            button11.Text = "15:00";
+            button11.UseVisualStyleBackColor = true;
+            // 
+            // button10
+            // 
+            button10.Location = new Point(490, 141);
+            button10.Name = "button10";
+            button10.Size = new Size(46, 22);
+            button10.TabIndex = 41;
+            button10.Text = "14:30";
+            button10.UseVisualStyleBackColor = true;
+            // 
+            // button9
+            // 
+            button9.Location = new Point(438, 142);
+            button9.Name = "button9";
+            button9.Size = new Size(46, 22);
+            button9.TabIndex = 40;
+            button9.Text = "14:00";
+            button9.UseVisualStyleBackColor = true;
+            // 
+            // button8
+            // 
+            button8.Location = new Point(386, 142);
+            button8.Name = "button8";
+            button8.Size = new Size(46, 22);
+            button8.TabIndex = 39;
+            button8.Text = "13:30";
+            button8.UseVisualStyleBackColor = true;
+            // 
+            // button7
+            // 
+            button7.Location = new Point(540, 111);
+            button7.Name = "button7";
+            button7.Size = new Size(46, 22);
+            button7.TabIndex = 38;
+            button7.Text = "13:00";
+            button7.UseVisualStyleBackColor = true;
+            // 
+            // button6
+            // 
+            button6.Location = new Point(488, 110);
+            button6.Name = "button6";
+            button6.Size = new Size(46, 22);
+            button6.TabIndex = 37;
+            button6.Text = "12:30";
+            button6.UseVisualStyleBackColor = true;
+            // 
+            // button5
+            // 
+            button5.Location = new Point(438, 110);
+            button5.Name = "button5";
+            button5.Size = new Size(46, 22);
+            button5.TabIndex = 36;
+            button5.Text = "12:00";
+            button5.UseVisualStyleBackColor = true;
+            // 
+            // button4
+            // 
+            button4.Location = new Point(386, 111);
+            button4.Name = "button4";
+            button4.Size = new Size(46, 22);
+            button4.TabIndex = 35;
+            button4.Text = "11:30";
+            button4.UseVisualStyleBackColor = true;
+            // 
+            // button3
+            // 
+            button3.Location = new Point(542, 79);
+            button3.Name = "button3";
+            button3.Size = new Size(46, 22);
+            button3.TabIndex = 34;
+            button3.Text = "11:00";
+            button3.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            button2.Location = new Point(438, 79);
+            button2.Name = "button2";
+            button2.Size = new Size(46, 22);
+            button2.TabIndex = 33;
+            button2.Text = "10:00";
+            button2.UseVisualStyleBackColor = true;
+            // 
+            // button1
+            // 
+            button1.Location = new Point(386, 79);
+            button1.Name = "button1";
+            button1.Size = new Size(46, 22);
+            button1.TabIndex = 32;
+            button1.Text = "09:30";
+            button1.UseVisualStyleBackColor = true;
+            // 
+            // cmbSpecialty
+            // 
+            cmbSpecialty.FormattingEnabled = true;
+            cmbSpecialty.Location = new Point(143, 127);
+            cmbSpecialty.Name = "cmbSpecialty";
+            cmbSpecialty.Size = new Size(186, 23);
+            cmbSpecialty.TabIndex = 31;
+            cmbSpecialty.SelectedIndexChanged += cmbSpecialty_SelectedIndexChanged;
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Location = new Point(14, 127);
+            label8.Name = "label8";
+            label8.Size = new Size(100, 15);
+            label8.TabIndex = 30;
+            label8.Text = "Poliklinik Seçiniz :";
+            // 
+            // btnAppointmentDelete
+            // 
+            btnAppointmentDelete.Location = new Point(8, 279);
+            btnAppointmentDelete.Name = "btnAppointmentDelete";
+            btnAppointmentDelete.Size = new Size(209, 36);
+            btnAppointmentDelete.TabIndex = 29;
+            btnAppointmentDelete.Text = "Randevu Sil";
+            btnAppointmentDelete.UseVisualStyleBackColor = true;
+            // 
+            // btnAppintmentUpdate
+            // 
+            btnAppintmentUpdate.Location = new Point(223, 279);
+            btnAppintmentUpdate.Name = "btnAppintmentUpdate";
+            btnAppintmentUpdate.Size = new Size(209, 38);
+            btnAppintmentUpdate.TabIndex = 28;
+            btnAppintmentUpdate.Text = "Randevu Güncelle";
+            btnAppintmentUpdate.UseVisualStyleBackColor = true;
+            // 
+            // lblPatientFullName
+            // 
+            lblPatientFullName.AutoSize = true;
+            lblPatientFullName.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 162);
+            lblPatientFullName.Location = new Point(143, 82);
+            lblPatientFullName.Name = "lblPatientFullName";
+            lblPatientFullName.Size = new Size(0, 20);
+            lblPatientFullName.TabIndex = 27;
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Location = new Point(14, 38);
+            label6.Name = "label6";
+            label6.Size = new Size(78, 15);
+            label6.TabIndex = 25;
+            label6.Text = "Hasta TC No :";
+            // 
+            // cmbDoctorFullName
+            // 
+            cmbDoctorFullName.FormattingEnabled = true;
+            cmbDoctorFullName.Location = new Point(143, 168);
+            cmbDoctorFullName.Name = "cmbDoctorFullName";
+            cmbDoctorFullName.Size = new Size(186, 23);
+            cmbDoctorFullName.TabIndex = 24;
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Location = new Point(14, 84);
+            label5.Name = "label5";
+            label5.Size = new Size(64, 15);
+            label5.TabIndex = 23;
+            label5.Text = "Hasta Adı :";
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Location = new Point(14, 168);
+            label3.Name = "label3";
+            label3.Size = new Size(70, 15);
+            label3.TabIndex = 20;
+            label3.Text = "Doktor Adı :";
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(386, 48);
+            label2.Name = "label2";
+            label2.Size = new Size(87, 15);
+            label2.TabIndex = 16;
+            label2.Text = "Randevu Saati :";
+            // 
+            // dtpAppointmentDate
+            // 
+            dtpAppointmentDate.Format = DateTimePickerFormat.Custom;
+            dtpAppointmentDate.Location = new Point(143, 215);
+            dtpAppointmentDate.Name = "dtpAppointmentDate";
+            dtpAppointmentDate.Size = new Size(186, 23);
+            dtpAppointmentDate.TabIndex = 19;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(14, 221);
+            label1.Name = "label1";
+            label1.Size = new Size(90, 15);
+            label1.TabIndex = 17;
+            label1.Text = "Randevu Tarihi :";
+            // 
+            // btnAppointmentSave
+            // 
+            btnAppointmentSave.Location = new Point(438, 279);
+            btnAppointmentSave.Name = "btnAppointmentSave";
+            btnAppointmentSave.Size = new Size(206, 36);
+            btnAppointmentSave.TabIndex = 15;
+            btnAppointmentSave.Text = "Randevu Kaydet";
+            btnAppointmentSave.UseVisualStyleBackColor = true;
+            btnAppointmentSave.Click += btnAppointmentSave_Click;
+            // 
+            // button17
+            // 
+            button17.Location = new Point(718, 12);
+            button17.Name = "button17";
+            button17.Size = new Size(225, 43);
+            button17.TabIndex = 2;
+            button17.Text = "Hasta Kayıt Paneli";
+            button17.UseVisualStyleBackColor = true;
+            // 
+            // dataGridView1
+            // 
+            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView1.Location = new Point(12, 352);
+            dataGridView1.Name = "dataGridView1";
+            dataGridView1.Size = new Size(1034, 220);
+            dataGridView1.TabIndex = 3;
+            // 
+            // button18
+            // 
+            button18.Location = new Point(718, 292);
+            button18.Name = "button18";
+            button18.Size = new Size(225, 38);
+            button18.TabIndex = 4;
+            button18.Text = "Doktor Randevu Takvimi";
+            button18.UseVisualStyleBackColor = true;
+            // 
+            // Frm_Appointment
+            // 
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(1095, 580);
+            Controls.Add(button18);
+            Controls.Add(dataGridView1);
+            Controls.Add(button17);
+            Controls.Add(grpRandevuSistemi);
+            Name = "Frm_Appointment";
+            Text = "Form1";
+            Load += Frm_Appointment_Load;
+            grpRandevuSistemi.ResumeLayout(false);
+            grpRandevuSistemi.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ResumeLayout(false);
+        }
+
+        #endregion
+
+        private GroupBox grpRandevuSistemi;
+        private Button btnAppointmentDelete;
+        private Button btnAppintmentUpdate;
+        private Label label6;
+        private ComboBox cmbDoctorFullName;
+        private Label label5;
+        private Label label3;
+        private Label label2;
+        private DateTimePicker dtpAppointmentDate;
+        private Label label1;
+        private Button btnAppointmentSave;
+        private Label label8;
+        private Button button1;
+        private ComboBox cmbSpecialty;
+        private Button button16;
+        private Button button15;
+        private Button button14;
+        private Button button13;
+        private Button button12;
+        private Button button11;
+        private Button button10;
+        private Button button9;
+        private Button button8;
+        private Button button7;
+        private Button button6;
+        private Button button5;
+        private Button button4;
+        private Button button3;
+        private Button button2;
+        private Button button17;
+        private DataGridView dataGridView1;
+        private Button button18;
+        public Label lblPatientFullName;
+        private Label lblPatientSsn;
+    }
+}
