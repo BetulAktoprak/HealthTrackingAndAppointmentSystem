@@ -4,6 +4,7 @@ using HealthTrackingApp.DataAccess.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace HealthTrackingApp.DataAccess.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240802121249_patientSsnAddedToAppointment")]
+    partial class patientSsnAddedToAppointment
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -47,8 +50,8 @@ namespace HealthTrackingApp.DataAccess.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<bool>("Status")
-                        .HasColumnType("bit");
+                    b.Property<string>("Status")
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
@@ -93,7 +96,7 @@ namespace HealthTrackingApp.DataAccess.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("7d462c25-fdad-41ba-833e-79b4b57d043e"),
+                            Id = new Guid("cb657d7e-b1ef-4ea5-87b1-212a73570985"),
                             Address = "İstanbul",
                             Email = "ahmet@gmail.com",
                             FirstName = "Ahmet",
@@ -104,7 +107,7 @@ namespace HealthTrackingApp.DataAccess.Migrations
                         },
                         new
                         {
-                            Id = new Guid("5cc936a6-a629-4740-a4b1-3b01a798d376"),
+                            Id = new Guid("764035b2-53b4-4d0f-bbea-0505f81637c8"),
                             Address = "İstanbul",
                             Email = "aybars@gmail.com",
                             FirstName = "Aybars",
@@ -115,7 +118,7 @@ namespace HealthTrackingApp.DataAccess.Migrations
                         },
                         new
                         {
-                            Id = new Guid("08709540-c8d0-4e88-9b7d-cd0ae75be504"),
+                            Id = new Guid("f94edc5b-6909-453f-ace0-3f66c3191cd0"),
                             Address = "İstanbul",
                             Email = "neslihan@gmail.com",
                             FirstName = "Neslihan",
@@ -126,7 +129,7 @@ namespace HealthTrackingApp.DataAccess.Migrations
                         },
                         new
                         {
-                            Id = new Guid("85433f1c-b966-420d-a61c-8e714f39c2fd"),
+                            Id = new Guid("28c73858-de82-4718-81a5-e25024ff2689"),
                             Address = "İstanbul",
                             Email = "mustafa@gmail.com",
                             FirstName = "Mustafa",
@@ -137,7 +140,7 @@ namespace HealthTrackingApp.DataAccess.Migrations
                         },
                         new
                         {
-                            Id = new Guid("dba7660f-65e8-4d29-ac41-4003f0978ea0"),
+                            Id = new Guid("e7d51ee0-15ac-450f-829b-3af2bf11b701"),
                             Address = "İstanbul",
                             Email = "alparslan@gmail.com",
                             FirstName = "Alparslan",
@@ -148,7 +151,7 @@ namespace HealthTrackingApp.DataAccess.Migrations
                         },
                         new
                         {
-                            Id = new Guid("3ceca3a8-c508-4a5b-9df9-0c23cbbde174"),
+                            Id = new Guid("345d9a6b-5a5a-423a-9cce-f30888bc1f06"),
                             Address = "İstanbul",
                             Email = "serdar@gmail.com",
                             FirstName = "Serdar",
@@ -159,7 +162,7 @@ namespace HealthTrackingApp.DataAccess.Migrations
                         },
                         new
                         {
-                            Id = new Guid("295620bf-63be-4d7a-8aa5-910077a50811"),
+                            Id = new Guid("5324af46-c02a-462d-a800-a937fd656281"),
                             Address = "İstanbul",
                             Email = "metin@gmail.com",
                             FirstName = "Metin",
@@ -170,7 +173,7 @@ namespace HealthTrackingApp.DataAccess.Migrations
                         },
                         new
                         {
-                            Id = new Guid("3e64b615-6280-40d1-bba7-722eba30af61"),
+                            Id = new Guid("4bd06cdd-d66a-473c-9b5e-604ffcaec9ce"),
                             Address = "İstanbul",
                             Email = "bahadır@gmail.com",
                             FirstName = "Bahadır",
@@ -181,7 +184,7 @@ namespace HealthTrackingApp.DataAccess.Migrations
                         },
                         new
                         {
-                            Id = new Guid("4eaa5a87-3a12-4450-8c8e-451e354942eb"),
+                            Id = new Guid("55673b20-c0ac-442a-8ec1-073727a66d60"),
                             Address = "İstanbul",
                             Email = "ahmet@gmail.com",
                             FirstName = "Ahmet",
@@ -192,7 +195,7 @@ namespace HealthTrackingApp.DataAccess.Migrations
                         },
                         new
                         {
-                            Id = new Guid("4b092e1e-ddd7-4c02-b89d-ab0a1efb800d"),
+                            Id = new Guid("43a3caf6-1a60-40a6-b0b3-7f23d80aebb4"),
                             Address = "İstanbul",
                             Email = "haydar@gmail.com",
                             FirstName = "Haydar",

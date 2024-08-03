@@ -9,7 +9,7 @@ namespace HealthTrackingApp.Entity.Models
 {
     public class Patient : BaseEntity
     {
-        public string? SSN { get; set; }  // TC No (Social Security Number)
+        public string SSN { get; set; }  
         public string? FullName { get; set; }
         public DateTime? BirthDate { get; set; }
         public string? Gender { get; set; }
