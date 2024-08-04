@@ -336,6 +336,116 @@ namespace HealthTrackingApp.UI
 
         private void btnAppointmentDelete_Click(object sender, EventArgs e)
         {
+            if (dgvAppointmentList.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Silmek için bir randevu seçiniz.");
+                return;
+            }
+
+            var selectedRow = dgvAppointmentList.SelectedRows[0];
+            Guid appointmentId = (Guid)selectedRow.Cells["Id"].Value;
+
+            var appointment = _appointmentService.GetByID(appointmentId);
+            if (appointment == null)
+            {
+                MessageBox.Show("Randevu bulunamadý.");
+                return;
+            }
+
+            DateTime appointmentDateTime = appointment.AppointmentDate.Value.Date + appointment.AppointmentTime.Value;
+            if (appointmentDateTime <= DateTime.Now || !appointment.Status)
+            {
+                MessageBox.Show("Sadece gelecekteki randevular silinebilir.");
+                return;
+            }
+
+            try
+            {
+                _appointmentService.Delete(appointment.Id);
+                MessageBox.Show("Randevu baþarýyla silindi.");
+                PatientAppointmentList(lblPatientSsn.Text);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Randevu silinirken hata oluþtu: " + ex.Message);
+            }
+        }
+
+        private void btnDoctorAppointmentCalendar_Click(object sender, EventArgs e)
+        {
+            if (cmbDoctorFullName.SelectedItem == null || !(cmbDoctorFullName.SelectedItem is Doctor selectedDoctor))
+            {
+                MessageBox.Show("Lütfen bir doktor seçiniz.");
+                return;
+            }
+
+            Guid doctorId = selectedDoctor.Id;
+            DateTime selectedDate = DateTime.Now.Date;
+
+            var appointmentsQuery = from app in _context.Appointments
+                                    join p in _context.Patients on app.PatientId equals p.Id
+                                    where app.DoctorId == doctorId && app.AppointmentDate.Value.Date == selectedDate
+                                    orderby app.AppointmentTime
+                                    select new
+                                    {
+                                        HastaTC = p.SSN,
+                                        HastaAdSoyad = p.FullName,
+                                        RandevuSaati = app.AppointmentTime.HasValue
+                                            ? string.Format("{0:D2}:{1:D2}", app.AppointmentTime.Value.Hours, app.AppointmentTime.Value.Minutes)
+                                            : ""
+                                    };
+
+            var appointments = appointmentsQuery.ToList();
+            dgvDoctorAppointmentList.DataSource = appointments;
+        }
+
+        private void btnPatientRegistrationPanel_Click(object sender, EventArgs e)
+        {
+            Frm_PatientRegistration frm_PatientRegistration = new Frm_PatientRegistration();
+            frm_PatientRegistration.Show();
+
+            this.Close();
+        }
+
+        private void btnPatientTreatmentInformation_Click(object sender, EventArgs e)
+        {
+            if (dgvAppointmentList.SelectedRows.Count > 0)
+            {
+                var selectedRow = dgvAppointmentList.SelectedRows[0];
+                if (selectedRow.Cells["RandevuTarihi"].Value != null)
+                {
+                    if (DateTime.TryParse(selectedRow.Cells["RandevuTarihi"].Value.ToString(), out DateTime appointmentDate))
+                    {
+                        var appointmentStatus = selectedRow.Cells["RandevuDurumu"].Value?.ToString();
+
+                        if (appointmentDate.Date == DateTime.Now.Date && appointmentStatus == "Geçmiþ Randevu")
+                        {
+                            string Ssn = lblPatientSsn.Text;
+                            string patientFullName = lblPatientFullName.Text;
+                            string doctorFullName = selectedRow.Cells["DoktorAdiSoyadi"].Value.ToString();
+
+                            Frm_DoctorLogin frm_DoctorLogin = new Frm_DoctorLogin(Ssn, patientFullName, doctorFullName);
+                            frm_DoctorLogin.Show();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Lütfen bugüne ait ve 'Geçmiþ Randevu' olan bir randevu seçin.");
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Randevu tarihi geçersiz.");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Randevu tarihi bulunamadý.");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Lütfen bir randevu seçin.");
+            }
 
         }
     }

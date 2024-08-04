@@ -289,22 +289,12 @@ namespace HealthTrackingApp.UI
         private string selectedPatientFullName;
         private void dgvPatientList_MouseClick(object sender, MouseEventArgs e)
         {
-            //if (dgvPatientList.CurrentRow != null)
-            //{
-            //    selectedPatientSsn = dgvPatientList.CurrentRow.Cells["SSN"].Value.ToString();
-            //    selectedPatientFullName = dgvPatientList.CurrentRow.Cells["FullName"].ToString();
-            //}
 
             if (dgvPatientList.CurrentRow != null)
             {
                 string ssn = dgvPatientList.CurrentRow.Cells["SSN"].Value?.ToString();
                 string fullName = dgvPatientList.CurrentRow.Cells["FullName"].Value?.ToString();
 
-                // Değerlerin doğru olduğundan emin olmak için debugging
-                //Debug.WriteLine("Selected Patient SSN: " + ssn);
-                //Debug.WriteLine("Selected Patient Full Name: " + fullName);
-
-                // Seçilen bilgileri saklayın
                 selectedPatientSsn = ssn;
                 selectedPatientFullName = fullName;
             }
@@ -315,6 +305,7 @@ namespace HealthTrackingApp.UI
             {
                 Frm_Appointment frm_Appointment = new Frm_Appointment(selectedPatientSsn, selectedPatientFullName);
                 frm_Appointment.Show();
+                this.Visible = false;
             }
             else
             {

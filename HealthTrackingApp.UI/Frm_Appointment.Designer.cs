@@ -59,16 +59,19 @@
             dtpAppointmentDate = new DateTimePicker();
             label1 = new Label();
             btnAppointmentSave = new Button();
-            button17 = new Button();
+            btnPatientRegistrationPanel = new Button();
             dgvAppointmentList = new DataGridView();
-            button18 = new Button();
+            btnDoctorAppointmentCalendar = new Button();
+            dgvDoctorAppointmentList = new DataGridView();
+            btnPatientTreatmentInformation = new Button();
             grpAppointmentSystem.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvAppointmentList).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dgvDoctorAppointmentList).BeginInit();
             SuspendLayout();
             // 
             // grpAppointmentSystem
             // 
-            grpAppointmentSystem.BackColor = Color.MediumAquamarine;
+            grpAppointmentSystem.BackColor = Color.PowderBlue;
             grpAppointmentSystem.Controls.Add(lblPatientSsn);
             grpAppointmentSystem.Controls.Add(button16);
             grpAppointmentSystem.Controls.Add(button15);
@@ -395,41 +398,67 @@
             btnAppointmentSave.UseVisualStyleBackColor = true;
             btnAppointmentSave.Click += btnAppointmentSave_Click;
             // 
-            // button17
+            // btnPatientRegistrationPanel
             // 
-            button17.Location = new Point(718, 12);
-            button17.Name = "button17";
-            button17.Size = new Size(225, 43);
-            button17.TabIndex = 2;
-            button17.Text = "Hasta Kayıt Paneli";
-            button17.UseVisualStyleBackColor = true;
+            btnPatientRegistrationPanel.Location = new Point(675, 12);
+            btnPatientRegistrationPanel.Name = "btnPatientRegistrationPanel";
+            btnPatientRegistrationPanel.Size = new Size(371, 43);
+            btnPatientRegistrationPanel.TabIndex = 2;
+            btnPatientRegistrationPanel.Text = "Hasta Kayıt Paneli";
+            btnPatientRegistrationPanel.UseVisualStyleBackColor = true;
+            btnPatientRegistrationPanel.Click += btnPatientRegistrationPanel_Click;
             // 
             // dgvAppointmentList
             // 
             dgvAppointmentList.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvAppointmentList.BackgroundColor = SystemColors.Control;
             dgvAppointmentList.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvAppointmentList.Location = new Point(12, 352);
             dgvAppointmentList.Name = "dgvAppointmentList";
             dgvAppointmentList.Size = new Size(1034, 220);
             dgvAppointmentList.TabIndex = 3;
             // 
-            // button18
+            // btnDoctorAppointmentCalendar
             // 
-            button18.Location = new Point(718, 292);
-            button18.Name = "button18";
-            button18.Size = new Size(225, 38);
-            button18.TabIndex = 4;
-            button18.Text = "Doktor Randevu Takvimi";
-            button18.UseVisualStyleBackColor = true;
+            btnDoctorAppointmentCalendar.Location = new Point(675, 106);
+            btnDoctorAppointmentCalendar.Name = "btnDoctorAppointmentCalendar";
+            btnDoctorAppointmentCalendar.Size = new Size(371, 38);
+            btnDoctorAppointmentCalendar.TabIndex = 4;
+            btnDoctorAppointmentCalendar.Text = "Doktor Randevu Takvimi";
+            btnDoctorAppointmentCalendar.UseVisualStyleBackColor = true;
+            btnDoctorAppointmentCalendar.Click += btnDoctorAppointmentCalendar_Click;
+            // 
+            // dgvDoctorAppointmentList
+            // 
+            dgvDoctorAppointmentList.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvDoctorAppointmentList.BackgroundColor = SystemColors.Control;
+            dgvDoctorAppointmentList.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvDoctorAppointmentList.Location = new Point(675, 153);
+            dgvDoctorAppointmentList.Name = "dgvDoctorAppointmentList";
+            dgvDoctorAppointmentList.Size = new Size(371, 193);
+            dgvDoctorAppointmentList.TabIndex = 5;
+            // 
+            // btnPatientTreatmentInformation
+            // 
+            btnPatientTreatmentInformation.Location = new Point(675, 60);
+            btnPatientTreatmentInformation.Name = "btnPatientTreatmentInformation";
+            btnPatientTreatmentInformation.Size = new Size(371, 40);
+            btnPatientTreatmentInformation.TabIndex = 6;
+            btnPatientTreatmentInformation.Text = "Hasta Tedavi Bilgileri";
+            btnPatientTreatmentInformation.UseVisualStyleBackColor = true;
+            btnPatientTreatmentInformation.Click += btnPatientTreatmentInformation_Click;
             // 
             // Frm_Appointment
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.LightBlue;
             ClientSize = new Size(1095, 580);
-            Controls.Add(button18);
+            Controls.Add(btnPatientTreatmentInformation);
+            Controls.Add(dgvDoctorAppointmentList);
+            Controls.Add(btnDoctorAppointmentCalendar);
             Controls.Add(dgvAppointmentList);
-            Controls.Add(button17);
+            Controls.Add(btnPatientRegistrationPanel);
             Controls.Add(grpAppointmentSystem);
             Name = "Frm_Appointment";
             Text = "Form1";
@@ -437,6 +466,7 @@
             grpAppointmentSystem.ResumeLayout(false);
             grpAppointmentSystem.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dgvAppointmentList).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgvDoctorAppointmentList).EndInit();
             ResumeLayout(false);
         }
 
@@ -471,10 +501,12 @@
         private Button button4;
         private Button button3;
         private Button button2;
-        private Button button17;
+        private Button btnPatientRegistrationPanel;
         private DataGridView dgvAppointmentList;
-        private Button button18;
+        private Button btnDoctorAppointmentCalendar;
         public Label lblPatientFullName;
         private Label lblPatientSsn;
+        private DataGridView dgvDoctorAppointmentList;
+        private Button btnPatientTreatmentInformation;
     }
 }

@@ -80,7 +80,7 @@
             // 
             // grpPatientRegistration
             // 
-            grpPatientRegistration.BackColor = Color.LightCoral;
+            grpPatientRegistration.BackColor = Color.PowderBlue;
             grpPatientRegistration.Controls.Add(rbMarried);
             grpPatientRegistration.Controls.Add(rbSingle);
             grpPatientRegistration.Controls.Add(txtSsn);
@@ -120,7 +120,7 @@
             grpPatientRegistration.Controls.Add(label1);
             grpPatientRegistration.Location = new Point(29, 38);
             grpPatientRegistration.Name = "grpPatientRegistration";
-            grpPatientRegistration.Size = new Size(1045, 370);
+            grpPatientRegistration.Size = new Size(987, 370);
             grpPatientRegistration.TabIndex = 6;
             grpPatientRegistration.TabStop = false;
             grpPatientRegistration.Text = "Hasta Kayıt Formu";
@@ -216,7 +216,7 @@
             // label15
             // 
             label15.AutoSize = true;
-            label15.Location = new Point(1, 298);
+            label15.Location = new Point(6, 301);
             label15.Name = "label15";
             label15.Size = new Size(69, 15);
             label15.TabIndex = 18;
@@ -226,7 +226,7 @@
             // 
             txtPolicyNumber.Location = new Point(811, 186);
             txtPolicyNumber.Name = "txtPolicyNumber";
-            txtPolicyNumber.Size = new Size(183, 23);
+            txtPolicyNumber.Size = new Size(156, 23);
             txtPolicyNumber.TabIndex = 17;
             // 
             // label14
@@ -242,7 +242,7 @@
             // 
             txtInsuranceCompany.Location = new Point(811, 149);
             txtInsuranceCompany.Name = "txtInsuranceCompany";
-            txtInsuranceCompany.Size = new Size(183, 23);
+            txtInsuranceCompany.Size = new Size(156, 23);
             txtInsuranceCompany.TabIndex = 17;
             // 
             // label13
@@ -259,7 +259,7 @@
             cmbInsuranceType.FormattingEnabled = true;
             cmbInsuranceType.Location = new Point(811, 115);
             cmbInsuranceType.Name = "cmbInsuranceType";
-            cmbInsuranceType.Size = new Size(183, 23);
+            cmbInsuranceType.Size = new Size(156, 23);
             cmbInsuranceType.TabIndex = 15;
             // 
             // label12
@@ -284,14 +284,14 @@
             // 
             txtEmergencyPersonPhone.Location = new Point(811, 71);
             txtEmergencyPersonPhone.Name = "txtEmergencyPersonPhone";
-            txtEmergencyPersonPhone.Size = new Size(183, 23);
+            txtEmergencyPersonPhone.Size = new Size(156, 23);
             txtEmergencyPersonPhone.TabIndex = 12;
             // 
             // txtEmergencyPersonName
             // 
             txtEmergencyPersonName.Location = new Point(811, 33);
             txtEmergencyPersonName.Name = "txtEmergencyPersonName";
-            txtEmergencyPersonName.Size = new Size(183, 23);
+            txtEmergencyPersonName.Size = new Size(156, 23);
             txtEmergencyPersonName.TabIndex = 11;
             // 
             // label10
@@ -306,7 +306,7 @@
             // label9
             // 
             label9.AutoSize = true;
-            label9.Location = new Point(0, 260);
+            label9.Location = new Point(6, 264);
             label9.Name = "label9";
             label9.Size = new Size(77, 15);
             label9.TabIndex = 8;
@@ -315,7 +315,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(0, 38);
+            label2.Location = new Point(6, 38);
             label2.Name = "label2";
             label2.Size = new Size(45, 15);
             label2.TabIndex = 7;
@@ -325,7 +325,7 @@
             // 
             rtxtMedicalHistory.Location = new Point(438, 257);
             rtxtMedicalHistory.Name = "rtxtMedicalHistory";
-            rtxtMedicalHistory.Size = new Size(556, 107);
+            rtxtMedicalHistory.Size = new Size(529, 107);
             rtxtMedicalHistory.TabIndex = 6;
             rtxtMedicalHistory.Text = "";
             // 
@@ -364,7 +364,7 @@
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(0, 189);
+            label6.Location = new Point(6, 184);
             label6.Name = "label6";
             label6.Size = new Size(53, 15);
             label6.TabIndex = 1;
@@ -380,7 +380,7 @@
             // label8
             // 
             label8.AutoSize = true;
-            label8.Location = new Point(0, 221);
+            label8.Location = new Point(6, 216);
             label8.Name = "label8";
             label8.Size = new Size(43, 15);
             label8.TabIndex = 1;
@@ -396,7 +396,7 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(0, 157);
+            label5.Location = new Point(6, 157);
             label5.Name = "label5";
             label5.Size = new Size(70, 15);
             label5.TabIndex = 1;
@@ -405,7 +405,7 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(0, 128);
+            label4.Location = new Point(6, 128);
             label4.Name = "label4";
             label4.Size = new Size(55, 15);
             label4.TabIndex = 1;
@@ -414,7 +414,7 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(0, 96);
+            label3.Location = new Point(6, 96);
             label3.Name = "label3";
             label3.Size = new Size(84, 15);
             label3.TabIndex = 1;
@@ -430,7 +430,7 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(0, 67);
+            label1.Location = new Point(6, 67);
             label1.Name = "label1";
             label1.Size = new Size(84, 15);
             label1.TabIndex = 1;
@@ -438,9 +438,9 @@
             // 
             // btnPatientDelete
             // 
-            btnPatientDelete.Location = new Point(1109, 207);
+            btnPatientDelete.Location = new Point(1031, 190);
             btnPatientDelete.Name = "btnPatientDelete";
-            btnPatientDelete.Size = new Size(238, 57);
+            btnPatientDelete.Size = new Size(217, 57);
             btnPatientDelete.TabIndex = 29;
             btnPatientDelete.Text = "Sil";
             btnPatientDelete.UseVisualStyleBackColor = true;
@@ -448,9 +448,9 @@
             // 
             // btnPatientUpdate
             // 
-            btnPatientUpdate.Location = new Point(1109, 125);
+            btnPatientUpdate.Location = new Point(1031, 113);
             btnPatientUpdate.Name = "btnPatientUpdate";
-            btnPatientUpdate.Size = new Size(238, 52);
+            btnPatientUpdate.Size = new Size(217, 52);
             btnPatientUpdate.TabIndex = 28;
             btnPatientUpdate.Text = "Düzenle";
             btnPatientUpdate.UseVisualStyleBackColor = true;
@@ -458,9 +458,9 @@
             // 
             // btnPatientSave
             // 
-            btnPatientSave.Location = new Point(1109, 38);
+            btnPatientSave.Location = new Point(1031, 38);
             btnPatientSave.Name = "btnPatientSave";
-            btnPatientSave.Size = new Size(238, 58);
+            btnPatientSave.Size = new Size(217, 58);
             btnPatientSave.TabIndex = 0;
             btnPatientSave.Text = "Kaydet";
             btnPatientSave.UseVisualStyleBackColor = true;
@@ -472,16 +472,16 @@
             dgvPatientList.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvPatientList.Location = new Point(29, 414);
             dgvPatientList.Name = "dgvPatientList";
-            dgvPatientList.Size = new Size(1333, 214);
+            dgvPatientList.Size = new Size(1219, 214);
             dgvPatientList.TabIndex = 7;
             dgvPatientList.CellDoubleClick += dgvPatientList_CellDoubleClick;
             dgvPatientList.MouseClick += dgvPatientList_MouseClick;
             // 
             // txtPatientSearch
             // 
-            txtPatientSearch.Location = new Point(1109, 371);
+            txtPatientSearch.Location = new Point(1031, 379);
             txtPatientSearch.Name = "txtPatientSearch";
-            txtPatientSearch.Size = new Size(238, 23);
+            txtPatientSearch.Size = new Size(217, 23);
             txtPatientSearch.TabIndex = 30;
             txtPatientSearch.TextChanged += txtPatientSearch_TextChanged;
             // 
@@ -489,7 +489,7 @@
             // 
             label19.AutoSize = true;
             label19.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 162);
-            label19.Location = new Point(1109, 343);
+            label19.Location = new Point(1031, 339);
             label19.Name = "label19";
             label19.Size = new Size(91, 21);
             label19.TabIndex = 31;
@@ -497,9 +497,9 @@
             // 
             // btnCreatAppointment
             // 
-            btnCreatAppointment.Location = new Point(1109, 285);
+            btnCreatAppointment.Location = new Point(1031, 264);
             btnCreatAppointment.Name = "btnCreatAppointment";
-            btnCreatAppointment.Size = new Size(238, 49);
+            btnCreatAppointment.Size = new Size(217, 49);
             btnCreatAppointment.TabIndex = 32;
             btnCreatAppointment.Text = "Randevu Oluştur";
             btnCreatAppointment.UseVisualStyleBackColor = true;
@@ -518,8 +518,8 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.IndianRed;
-            ClientSize = new Size(1399, 640);
+            BackColor = Color.LightBlue;
+            ClientSize = new Size(1267, 640);
             Controls.Add(label20);
             Controls.Add(btnCreatAppointment);
             Controls.Add(label19);
