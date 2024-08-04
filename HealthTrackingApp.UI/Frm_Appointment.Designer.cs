@@ -60,10 +60,10 @@
             label1 = new Label();
             btnAppointmentSave = new Button();
             button17 = new Button();
-            dataGridView1 = new DataGridView();
+            dgvAppointmentList = new DataGridView();
             button18 = new Button();
             grpAppointmentSystem.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dgvAppointmentList).BeginInit();
             SuspendLayout();
             // 
             // grpAppointmentSystem
@@ -301,6 +301,7 @@
             btnAppointmentDelete.TabIndex = 29;
             btnAppointmentDelete.Text = "Randevu Sil";
             btnAppointmentDelete.UseVisualStyleBackColor = true;
+            btnAppointmentDelete.Click += btnAppointmentDelete_Click;
             // 
             // btnAppintmentUpdate
             // 
@@ -310,6 +311,7 @@
             btnAppintmentUpdate.TabIndex = 28;
             btnAppintmentUpdate.Text = "Randevu Güncelle";
             btnAppintmentUpdate.UseVisualStyleBackColor = true;
+            btnAppintmentUpdate.Click += btnAppintmentUpdate_Click;
             // 
             // lblPatientFullName
             // 
@@ -402,13 +404,14 @@
             button17.Text = "Hasta Kayıt Paneli";
             button17.UseVisualStyleBackColor = true;
             // 
-            // dataGridView1
+            // dgvAppointmentList
             // 
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(12, 352);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.Size = new Size(1034, 220);
-            dataGridView1.TabIndex = 3;
+            dgvAppointmentList.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvAppointmentList.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvAppointmentList.Location = new Point(12, 352);
+            dgvAppointmentList.Name = "dgvAppointmentList";
+            dgvAppointmentList.Size = new Size(1034, 220);
+            dgvAppointmentList.TabIndex = 3;
             // 
             // button18
             // 
@@ -425,7 +428,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1095, 580);
             Controls.Add(button18);
-            Controls.Add(dataGridView1);
+            Controls.Add(dgvAppointmentList);
             Controls.Add(button17);
             Controls.Add(grpAppointmentSystem);
             Name = "Frm_Appointment";
@@ -433,7 +436,7 @@
             Load += Frm_Appointment_Load;
             grpAppointmentSystem.ResumeLayout(false);
             grpAppointmentSystem.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgvAppointmentList).EndInit();
             ResumeLayout(false);
         }
 
@@ -469,7 +472,7 @@
         private Button button3;
         private Button button2;
         private Button button17;
-        private DataGridView dataGridView1;
+        private DataGridView dgvAppointmentList;
         private Button button18;
         public Label lblPatientFullName;
         private Label lblPatientSsn;
