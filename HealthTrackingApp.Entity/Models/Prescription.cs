@@ -12,7 +12,7 @@ namespace HealthTrackingApp.Entity.Models
         public Guid PatientId { get; set; }
         public Guid DoctorId { get; set; }
         public DateTime? PrescriptionDate { get; set; }
-        public string? Medication { get; set; }
+        public List<string> Medications { get; set; } = new List<string>();
         public string? Instructions { get; set; }
 
         public virtual Patient? Patient { get; set; }

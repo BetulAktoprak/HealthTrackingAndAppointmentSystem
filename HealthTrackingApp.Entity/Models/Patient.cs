@@ -24,6 +24,12 @@ namespace HealthTrackingApp.Entity.Models
         public string? Allergies { get; set; }
         public string? ChronicDiseases { get; set; }
         public string? Medications { get; set; }
+        public ICollection<Appointment>? Appointments { get; set; }
+        public ICollection<InsuranceInformation>? InsuranceInformations { get; set; }
+        public ICollection<Invoice>? Invoices { get; set; }
+        public ICollection<MedicalTest>? MedicalTests { get; set; }
+        public ICollection<Prescription>? Prescriptions { get; set; }
+        public ICollection<TreatmentPlan>? TreatmentPlans { get; set; }
     }
 
 }

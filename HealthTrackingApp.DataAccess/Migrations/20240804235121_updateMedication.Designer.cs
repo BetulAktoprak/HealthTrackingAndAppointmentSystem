@@ -4,6 +4,7 @@ using HealthTrackingApp.DataAccess.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace HealthTrackingApp.DataAccess.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240804235121_updateMedication")]
+    partial class updateMedication
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -93,7 +96,7 @@ namespace HealthTrackingApp.DataAccess.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("13f6ffee-a613-4e3c-a525-c4be04ef1983"),
+                            Id = new Guid("9993ca88-3c36-46bd-a384-fc2576def601"),
                             Address = "İstanbul",
                             Email = "ahmet@gmail.com",
                             FirstName = "Ahmet",
@@ -104,7 +107,7 @@ namespace HealthTrackingApp.DataAccess.Migrations
                         },
                         new
                         {
-                            Id = new Guid("ee9b6c0c-a421-4711-9c39-c13cb6d3c1aa"),
+                            Id = new Guid("d3f95929-f223-43f0-b811-217c8760b410"),
                             Address = "İstanbul",
                             Email = "aybars@gmail.com",
                             FirstName = "Aybars",
@@ -115,7 +118,7 @@ namespace HealthTrackingApp.DataAccess.Migrations
                         },
                         new
                         {
-                            Id = new Guid("a50847be-fdea-4ae9-9634-4b38a7ab7137"),
+                            Id = new Guid("304846a8-b604-4737-9885-9997d7a9bc20"),
                             Address = "İstanbul",
                             Email = "neslihan@gmail.com",
                             FirstName = "Neslihan",
@@ -126,7 +129,7 @@ namespace HealthTrackingApp.DataAccess.Migrations
                         },
                         new
                         {
-                            Id = new Guid("febc7c30-b8c1-4e45-9675-eb543919a6a0"),
+                            Id = new Guid("e4bf6304-5f37-4a5b-8543-7fd45bbced5c"),
                             Address = "İstanbul",
                             Email = "mustafa@gmail.com",
                             FirstName = "Mustafa",
@@ -137,7 +140,7 @@ namespace HealthTrackingApp.DataAccess.Migrations
                         },
                         new
                         {
-                            Id = new Guid("4f5021a4-5d69-4444-a6d9-28f5c104f5a5"),
+                            Id = new Guid("92aff278-3bb3-49bc-9286-f84d040ed2fb"),
                             Address = "İstanbul",
                             Email = "alparslan@gmail.com",
                             FirstName = "Alparslan",
@@ -148,7 +151,7 @@ namespace HealthTrackingApp.DataAccess.Migrations
                         },
                         new
                         {
-                            Id = new Guid("548d5aaf-ce2a-47c8-817f-28de9ce65509"),
+                            Id = new Guid("831b941b-f7f3-481e-abe6-a5ef8dfc6c33"),
                             Address = "İstanbul",
                             Email = "serdar@gmail.com",
                             FirstName = "Serdar",
@@ -159,7 +162,7 @@ namespace HealthTrackingApp.DataAccess.Migrations
                         },
                         new
                         {
-                            Id = new Guid("67aaf196-0da8-42b0-9cd5-d9fe487ad604"),
+                            Id = new Guid("5948cd45-148e-4830-ba7d-ff9859e31d9c"),
                             Address = "İstanbul",
                             Email = "metin@gmail.com",
                             FirstName = "Metin",
@@ -170,7 +173,7 @@ namespace HealthTrackingApp.DataAccess.Migrations
                         },
                         new
                         {
-                            Id = new Guid("50cd4e36-5d9a-42ee-a5bd-ceef36f72afe"),
+                            Id = new Guid("78d759ef-995f-4776-9442-d3d11b5682f6"),
                             Address = "İstanbul",
                             Email = "bahadır@gmail.com",
                             FirstName = "Bahadır",
@@ -181,7 +184,7 @@ namespace HealthTrackingApp.DataAccess.Migrations
                         },
                         new
                         {
-                            Id = new Guid("09fc2ca1-7db0-41bd-8374-61ae298eba2c"),
+                            Id = new Guid("e2fed086-91e0-4343-a610-20a81368adc8"),
                             Address = "İstanbul",
                             Email = "ahmet@gmail.com",
                             FirstName = "Ahmet",
@@ -192,7 +195,7 @@ namespace HealthTrackingApp.DataAccess.Migrations
                         },
                         new
                         {
-                            Id = new Guid("8060ad47-fa0e-4cfb-8ffd-1177b180f76f"),
+                            Id = new Guid("b27b42b5-9dcb-45ac-8c43-69430fa053f0"),
                             Address = "İstanbul",
                             Email = "haydar@gmail.com",
                             FirstName = "Haydar",
@@ -411,13 +414,13 @@ namespace HealthTrackingApp.DataAccess.Migrations
             modelBuilder.Entity("HealthTrackingApp.Entity.Models.Appointment", b =>
                 {
                     b.HasOne("HealthTrackingApp.Entity.Models.Doctor", "Doctor")
-                        .WithMany("Appointments")
+                        .WithMany()
                         .HasForeignKey("DoctorId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("HealthTrackingApp.Entity.Models.Patient", "Patient")
-                        .WithMany("Appointments")
+                        .WithMany()
                         .HasForeignKey("PatientId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -430,7 +433,7 @@ namespace HealthTrackingApp.DataAccess.Migrations
             modelBuilder.Entity("HealthTrackingApp.Entity.Models.InsuranceInformation", b =>
                 {
                     b.HasOne("HealthTrackingApp.Entity.Models.Patient", "Patient")
-                        .WithMany("InsuranceInformations")
+                        .WithMany()
                         .HasForeignKey("PatientId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -441,7 +444,7 @@ namespace HealthTrackingApp.DataAccess.Migrations
             modelBuilder.Entity("HealthTrackingApp.Entity.Models.Invoice", b =>
                 {
                     b.HasOne("HealthTrackingApp.Entity.Models.Patient", "Patient")
-                        .WithMany("Invoices")
+                        .WithMany()
                         .HasForeignKey("PatientId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -452,7 +455,7 @@ namespace HealthTrackingApp.DataAccess.Migrations
             modelBuilder.Entity("HealthTrackingApp.Entity.Models.MedicalTest", b =>
                 {
                     b.HasOne("HealthTrackingApp.Entity.Models.Patient", "Patient")
-                        .WithMany("MedicalTests")
+                        .WithMany()
                         .HasForeignKey("PatientId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -463,13 +466,13 @@ namespace HealthTrackingApp.DataAccess.Migrations
             modelBuilder.Entity("HealthTrackingApp.Entity.Models.Prescription", b =>
                 {
                     b.HasOne("HealthTrackingApp.Entity.Models.Doctor", "Doctor")
-                        .WithMany("Prescriptions")
+                        .WithMany()
                         .HasForeignKey("DoctorId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("HealthTrackingApp.Entity.Models.Patient", "Patient")
-                        .WithMany("Prescriptions")
+                        .WithMany()
                         .HasForeignKey("PatientId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -482,13 +485,13 @@ namespace HealthTrackingApp.DataAccess.Migrations
             modelBuilder.Entity("HealthTrackingApp.Entity.Models.TreatmentPlan", b =>
                 {
                     b.HasOne("HealthTrackingApp.Entity.Models.Doctor", "Doctor")
-                        .WithMany("TreatmentPlans")
+                        .WithMany()
                         .HasForeignKey("DoctorId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("HealthTrackingApp.Entity.Models.Patient", "Patient")
-                        .WithMany("TreatmentPlans")
+                        .WithMany()
                         .HasForeignKey("PatientId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -496,30 +499,6 @@ namespace HealthTrackingApp.DataAccess.Migrations
                     b.Navigation("Doctor");
 
                     b.Navigation("Patient");
-                });
-
-            modelBuilder.Entity("HealthTrackingApp.Entity.Models.Doctor", b =>
-                {
-                    b.Navigation("Appointments");
-
-                    b.Navigation("Prescriptions");
-
-                    b.Navigation("TreatmentPlans");
-                });
-
-            modelBuilder.Entity("HealthTrackingApp.Entity.Models.Patient", b =>
-                {
-                    b.Navigation("Appointments");
-
-                    b.Navigation("InsuranceInformations");
-
-                    b.Navigation("Invoices");
-
-                    b.Navigation("MedicalTests");
-
-                    b.Navigation("Prescriptions");
-
-                    b.Navigation("TreatmentPlans");
                 });
 #pragma warning restore 612, 618
         }

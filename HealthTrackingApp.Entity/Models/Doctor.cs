@@ -16,6 +16,9 @@ namespace HealthTrackingApp.Entity.Models
         public string? Phone { get; set; }
         public string? Email { get; set; }
         public string? Address { get; set; }
+        public ICollection<Appointment>? Appointments { get; set; }
+        public ICollection<Prescription>? Prescriptions { get; set; }
+        public ICollection<TreatmentPlan>? TreatmentPlans { get; set; }
 
     }
 

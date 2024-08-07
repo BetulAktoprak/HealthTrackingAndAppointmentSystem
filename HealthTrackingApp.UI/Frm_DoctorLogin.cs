@@ -43,11 +43,14 @@ namespace HealthTrackingApp.UI
             string incomingPassword = txtPassword.Text;
 
 
-            var doctor = _doctorFullName.Trim().ToLower();
+            var doctor = _doctorService.GetAll()
+                   .FirstOrDefault(d => d.FullName.Trim().ToLower() == incomingFullName);
 
-            if (doctor == incomingFullName && incomingPassword.Equals("admin"))
+            if (doctor != null && incomingPassword.Equals("admin"))
             {
-                Frm_PatientTreatmentInformation frm_PatientTreatmentInformation = new Frm_PatientTreatmentInformation(_ssn, _patientFullName);
+                _doctorFullName = doctor.FullName;
+
+                Frm_PatientTreatmentInformation frm_PatientTreatmentInformation = new Frm_PatientTreatmentInformation(_ssn, _patientFullName, _doctorFullName);
                 frm_PatientTreatmentInformation.Show();
                 this.Close();
             }
