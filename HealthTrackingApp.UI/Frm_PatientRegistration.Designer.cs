@@ -530,7 +530,9 @@
             Controls.Add(grpPatientRegistration);
             Controls.Add(btnPatientSave);
             Name = "Frm_PatientRegistration";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Frm_PatientRegistration";
+            FormClosing += Frm_PatientRegistration_FormClosing;
             Load += Frm_PatientRegistration_Load;
             grpPatientRegistration.ResumeLayout(false);
             grpPatientRegistration.PerformLayout();

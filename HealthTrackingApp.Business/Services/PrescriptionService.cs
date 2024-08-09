@@ -1,63 +1,62 @@
-﻿using FluentValidation.Results;
+﻿using FluentValidation;
+using FluentValidation.Results;
 using HealthTrackingApp.Business.Abstractions;
 using HealthTrackingApp.Business.Validators;
 using HealthTrackingApp.DataAccess.Repositories;
 using HealthTrackingApp.Entity.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace HealthTrackingApp.Business.Services
+namespace HealthTrackingApp.Business.Services;
+
+public class PrescriptionService : IService<Prescription>
 {
-    public class PrescriptionService : IService<Prescription>
+    private readonly PrescriptionRepository _prescriptionRepository;
+
+    public PrescriptionService(PrescriptionRepository prescriptionRepository)
     {
-        private readonly PrescriptionRepository _prescriptionRepository;
+        _prescriptionRepository = prescriptionRepository;
+    }
 
-        public PrescriptionService(PrescriptionRepository prescriptionRepository)
+    public void Add(Prescription entity)
+    {
+        PrescriptionValidator pVal = new();
+        ValidationResult result = pVal.Validate(entity);
+        if (!result.IsValid)
         {
-            _prescriptionRepository = prescriptionRepository;
+            throw new ValidationException(string.Join("\n", result.Errors.Select(e => e.ErrorMessage)));
         }
+        _prescriptionRepository.Add(entity);
+    }
 
-        public void Add(Prescription entity)
+    public void Delete(Guid id)
+    {
+        var prescriptionId = _prescriptionRepository.GetByID(id);
+        if (prescriptionId != null)
         {
-            PrescriptionValidator pVal = new();
-            ValidationResult result = pVal.Validate(entity);
-            if (!result.IsValid)
-            {
-                throw new Exception(string.Join("\n", result.Errors));
-            }
-            _prescriptionRepository.Add(entity);
+            _prescriptionRepository.Delete(id);
         }
+    }
 
-        public void Delete(Guid id)
+    public IEnumerable<Prescription>? GetAll()
+    {
+        return _prescriptionRepository.GetAll();
+    }
+
+    public Prescription? GetByID(Guid id)
+    {
+        return _prescriptionRepository.GetByID(id);
+    }
+
+    public void Update(Prescription entity)
+    {
+        PrescriptionValidator pVal = new();
+        ValidationResult result = pVal.Validate(entity);
+        if (result.IsValid)
         {
-            var prescriptionId = _prescriptionRepository.GetByID(id);
-            if (prescriptionId != null)
-            {
-                _prescriptionRepository.Delete(id);
-            }
+            _prescriptionRepository.Update(entity);
         }
-
-        public IEnumerable<Prescription>? GetAll()
+        else
         {
-            return _prescriptionRepository.GetAll();
-        }
-
-        public Prescription? GetByID(Guid id)
-        {
-            return _prescriptionRepository.GetByID(id);
-        }
-
-        public void Update(Prescription entity)
-        {
-            PrescriptionValidator pVal = new();
-            ValidationResult result = pVal.Validate(entity);
-            if (result.IsValid)
-            {
-                _prescriptionRepository.Update(entity);
-            }
+            throw new ValidationException(string.Join("\n", result.Errors.Select(e => e.ErrorMessage)));
         }
     }
 }

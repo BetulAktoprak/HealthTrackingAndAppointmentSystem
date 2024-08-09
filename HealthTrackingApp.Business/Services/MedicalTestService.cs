@@ -1,63 +1,62 @@
-﻿using FluentValidation.Results;
+﻿using FluentValidation;
+using FluentValidation.Results;
 using HealthTrackingApp.Business.Abstractions;
 using HealthTrackingApp.Business.Validators;
 using HealthTrackingApp.DataAccess.Repositories;
 using HealthTrackingApp.Entity.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace HealthTrackingApp.Business.Services
+namespace HealthTrackingApp.Business.Services;
+
+public class MedicalTestService : IService<MedicalTest>
 {
-    public class MedicalTestService : IService<MedicalTest>
+    private readonly MedicalTestRepository _medicalTestRepository;
+
+    public MedicalTestService(MedicalTestRepository medicalTestRepository)
     {
-        private readonly MedicalTestRepository _medicalTestRepository;
+        _medicalTestRepository = medicalTestRepository;
+    }
 
-        public MedicalTestService(MedicalTestRepository medicalTestRepository)
+    public void Add(MedicalTest entity)
+    {
+        MedicalTestValidator mVal = new();
+        ValidationResult result = mVal.Validate(entity);
+        if (!result.IsValid)
         {
-            _medicalTestRepository = medicalTestRepository;
+            throw new ValidationException(string.Join("\n", result.Errors.Select(e => e.ErrorMessage)));
         }
+        _medicalTestRepository.Add(entity);
+    }
 
-        public void Add(MedicalTest entity)
+    public void Delete(Guid id)
+    {
+        var medicalId = _medicalTestRepository.GetByID(id);
+        if (medicalId != null)
         {
-            MedicalTestValidator mVal = new();
-            ValidationResult result = mVal.Validate(entity);
-            if (!result.IsValid)
-            {
-                throw new Exception(string.Join("\n", result.Errors));
-            }
-            _medicalTestRepository.Add(entity);
+            _medicalTestRepository.Delete(id);
         }
+    }
 
-        public void Delete(Guid id)
+    public IEnumerable<MedicalTest>? GetAll()
+    {
+        return _medicalTestRepository.GetAll();
+    }
+
+    public MedicalTest? GetByID(Guid id)
+    {
+        return _medicalTestRepository.GetByID(id);
+    }
+
+    public void Update(MedicalTest entity)
+    {
+        MedicalTestValidator mVal = new();
+        ValidationResult result = mVal.Validate(entity);
+        if (result.IsValid)
         {
-            var medicalId = _medicalTestRepository.GetByID(id);
-            if (medicalId != null)
-            {
-                _medicalTestRepository.Delete(id);
-            }
+            _medicalTestRepository.Update(entity);
         }
-
-        public IEnumerable<MedicalTest>? GetAll()
+        else
         {
-            return _medicalTestRepository.GetAll();
-        }
-
-        public MedicalTest? GetByID(Guid id)
-        {
-            return _medicalTestRepository.GetByID(id);
-        }
-
-        public void Update(MedicalTest entity)
-        {
-            MedicalTestValidator mVal = new();
-            ValidationResult result = mVal.Validate(entity);
-            if (result.IsValid)
-            {
-                _medicalTestRepository.Update(entity);
-            }
+            throw new ValidationException(string.Join("\n", result.Errors.Select(e => e.ErrorMessage)));
         }
     }
 }

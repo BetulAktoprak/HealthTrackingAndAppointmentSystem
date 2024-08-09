@@ -102,6 +102,7 @@
             ClientSize = new Size(1025, 532);
             Controls.Add(grpDoctorLogin);
             Name = "Frm_DoctorLogin";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Frm_DoctorLogin";
             Load += Frm_DoctorLogin_Load;
             grpDoctorLogin.ResumeLayout(false);

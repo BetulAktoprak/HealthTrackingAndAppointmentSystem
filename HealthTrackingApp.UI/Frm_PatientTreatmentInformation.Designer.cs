@@ -274,6 +274,7 @@
             txtSearch.Name = "txtSearch";
             txtSearch.Size = new Size(238, 23);
             txtSearch.TabIndex = 2;
+            txtSearch.TextChanged += txtSearch_TextChanged;
             // 
             // label6
             // 
@@ -293,6 +294,7 @@
             dgvPatientTreatmentInformation.Name = "dgvPatientTreatmentInformation";
             dgvPatientTreatmentInformation.Size = new Size(1124, 196);
             dgvPatientTreatmentInformation.TabIndex = 4;
+            dgvPatientTreatmentInformation.SelectionChanged += dgvPatientTreatmentInformation_SelectionChanged;
             // 
             // Frm_PatientTreatmentInformation
             // 
@@ -306,6 +308,7 @@
             Controls.Add(medicationList);
             Controls.Add(grpPatientTreatmentInformation);
             Name = "Frm_PatientTreatmentInformation";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Frm_PatientTreatmentInformation";
             Load += Frm_PatientTreatmentInformation_Load;
             grpPatientTreatmentInformation.ResumeLayout(false);
@@ -313,7 +316,6 @@
             ((System.ComponentModel.ISupportInitialize)dgvPatientTreatmentInformation).EndInit();
             ResumeLayout(false);
             PerformLayout();
-
         }
 
         #endregion

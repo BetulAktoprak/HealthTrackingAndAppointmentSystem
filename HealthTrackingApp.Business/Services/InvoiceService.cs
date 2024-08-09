@@ -1,63 +1,62 @@
-﻿using FluentValidation.Results;
+﻿using FluentValidation;
+using FluentValidation.Results;
 using HealthTrackingApp.Business.Abstractions;
 using HealthTrackingApp.Business.Validators;
 using HealthTrackingApp.DataAccess.Repositories;
 using HealthTrackingApp.Entity.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace HealthTrackingApp.Business.Services
+namespace HealthTrackingApp.Business.Services;
+
+public class InvoiceService : IService<Invoice>
 {
-    public class InvoiceService : IService<Invoice>
+    private readonly InvoiceRepository _invoiceRepository;
+
+    public InvoiceService(InvoiceRepository invoiceRepository)
     {
-        private readonly InvoiceRepository _invoiceRepository;
+        _invoiceRepository = invoiceRepository;
+    }
 
-        public InvoiceService(InvoiceRepository invoiceRepository)
+    public void Add(Invoice entity)
+    {
+        InvoiceValidator iVal = new();
+        ValidationResult result = iVal.Validate(entity);
+        if (!result.IsValid)
         {
-            _invoiceRepository = invoiceRepository;
+            throw new ValidationException(string.Join("\n", result.Errors.Select(e => e.ErrorMessage)));
         }
+        _invoiceRepository.Add(entity);
+    }
 
-        public void Add(Invoice entity)
+    public void Delete(Guid id)
+    {
+        var invoiceId = _invoiceRepository.GetByID(id);
+        if (invoiceId != null)
         {
-            InvoiceValidator iVal = new();
-            ValidationResult result = iVal.Validate(entity);
-            if (!result.IsValid)
-            {
-                throw new Exception(string.Join("\n", result.Errors));
-            }
-            _invoiceRepository.Add(entity);
+            _invoiceRepository.Delete(id);
         }
+    }
 
-        public void Delete(Guid id)
+    public IEnumerable<Invoice>? GetAll()
+    {
+        return _invoiceRepository.GetAll();
+    }
+
+    public Invoice? GetByID(Guid id)
+    {
+        return _invoiceRepository.GetByID(id);
+    }
+
+    public void Update(Invoice entity)
+    {
+        InvoiceValidator iVal = new();
+        ValidationResult result = iVal.Validate(entity);
+        if (result.IsValid)
         {
-            var invoiceId = _invoiceRepository.GetByID(id);
-            if (invoiceId != null)
-            {
-                _invoiceRepository.Delete(id);
-            }
+            _invoiceRepository.Update(entity);
         }
-
-        public IEnumerable<Invoice>? GetAll()
+        else
         {
-            return _invoiceRepository.GetAll();
-        }
-
-        public Invoice? GetByID(Guid id)
-        {
-            return _invoiceRepository.GetByID(id);
-        }
-
-        public void Update(Invoice entity)
-        {
-            InvoiceValidator iVal = new();
-            ValidationResult result = iVal.Validate(entity);
-            if (result.IsValid)
-            {
-                _invoiceRepository.Update(entity);
-            }
+            throw new ValidationException(string.Join("\n", result.Errors.Select(e => e.ErrorMessage)));
         }
     }
 }

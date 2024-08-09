@@ -1,63 +1,62 @@
-﻿using FluentValidation.Results;
+﻿using FluentValidation;
+using FluentValidation.Results;
 using HealthTrackingApp.Business.Abstractions;
 using HealthTrackingApp.Business.Validators;
 using HealthTrackingApp.DataAccess.Repositories;
 using HealthTrackingApp.Entity.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace HealthTrackingApp.Business.Services
+namespace HealthTrackingApp.Business.Services;
+
+public class AppointmentService : IService<Appointment>
 {
-    public class AppointmentService : IService<Appointment>
+    private readonly AppointmentRepository _appointmentRepository;
+
+    public AppointmentService(AppointmentRepository appointmentRepository)
     {
-        private readonly AppointmentRepository _appointmentRepository;
+        _appointmentRepository = appointmentRepository;
+    }
 
-        public AppointmentService(AppointmentRepository appointmentRepository)
+    public void Add(Appointment entity)
+    {
+        AppointmentValidator aVal = new();
+        ValidationResult result = aVal.Validate(entity);
+        if (!result.IsValid)
         {
-            _appointmentRepository = appointmentRepository;
+            throw new ValidationException(string.Join("\n", result.Errors.Select(e => e.ErrorMessage)));
         }
+        _appointmentRepository.Add(entity);
+    }
 
-        public void Add(Appointment entity)
+    public void Delete(Guid id)
+    {
+        var appointmentId = _appointmentRepository.GetByID(id);
+        if (appointmentId != null)
         {
-            AppointmentValidator aVal = new();
-            ValidationResult result = aVal.Validate(entity);
-            if (!result.IsValid)
-            {
-                throw new Exception(string.Join("\n", result.Errors));
-            }
-            _appointmentRepository.Add(entity);
+            _appointmentRepository.Delete(id);
         }
+    }
 
-        public void Delete(Guid id)
+    public IEnumerable<Appointment>? GetAll()
+    {
+        return _appointmentRepository.GetAll();
+    }
+
+    public Appointment? GetByID(Guid id)
+    {
+        return _appointmentRepository.GetByID(id);
+    }
+
+    public void Update(Appointment entity)
+    {
+        AppointmentValidator aVal = new();
+        ValidationResult result = aVal.Validate(entity);
+        if (result.IsValid)
         {
-            var appointmentId = _appointmentRepository.GetByID(id);
-            if (appointmentId != null)
-            {
-                _appointmentRepository.Delete(id);
-            }
+            _appointmentRepository.Update(entity);
         }
-
-        public IEnumerable<Appointment>? GetAll()
+        else
         {
-            return _appointmentRepository.GetAll();
-        }
-
-        public Appointment? GetByID(Guid id)
-        {
-            return _appointmentRepository.GetByID(id);
-        }
-
-        public void Update(Appointment entity)
-        {
-            AppointmentValidator aVal = new();
-            ValidationResult result = aVal.Validate(entity);
-            if (result.IsValid)
-            {
-                _appointmentRepository.Update(entity);
-            }
+            throw new ValidationException(string.Join("\n", result.Errors.Select(e => e.ErrorMessage)));
         }
     }
 }

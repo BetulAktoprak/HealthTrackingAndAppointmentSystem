@@ -461,7 +461,9 @@
             Controls.Add(btnPatientRegistrationPanel);
             Controls.Add(grpAppointmentSystem);
             Name = "Frm_Appointment";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Form1";
+            FormClosing += Frm_Appointment_FormClosing;
             Load += Frm_Appointment_Load;
             grpAppointmentSystem.ResumeLayout(false);
             grpAppointmentSystem.PerformLayout();

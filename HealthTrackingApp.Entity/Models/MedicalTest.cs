@@ -1,21 +1,16 @@
 ﻿using HealthTrackingApp.Entity.Abstractions;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace HealthTrackingApp.Entity.Models
+namespace HealthTrackingApp.Entity.Models;
+
+public class MedicalTest : BaseEntity
 {
-    public class MedicalTest : BaseEntity
-    {
-        public Guid PatientId { get; set; }
-        public string? TestName { get; set; }
-        public DateTime? TestDate { get; set; }
-        public string? Result { get; set; }
-        public string? Notes { get; set; }
+    public Guid PatientId { get; set; }
+    public Guid PrescriptionId { get; set; }
+    public string? TestName { get; set; }
+    public DateTime? TestDate { get; set; }
+    public string? Result { get; set; }
+    public string? Notes { get; set; }
 
-        public virtual Patient? Patient { get; set; }
-    }
-
+    public virtual Patient? Patient { get; set; }
+    public virtual Prescription? Prescription { get; set; }
 }
